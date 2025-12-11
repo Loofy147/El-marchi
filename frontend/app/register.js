@@ -14,7 +14,7 @@ const RegisterScreen = () => {
   const handleRegister = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.post(`${API_URL}/api/users`, { name, email, password });
+      await axios.post(`${API_URL}/api/users`, { name, email, password });
       Alert.alert('Success', 'You have successfully registered.');
       router.replace('/login');
     } catch (error) {

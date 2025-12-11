@@ -25,7 +25,7 @@ const addProductToWishlist = asyncHandler(async (req, res) => {
 
   if (wishlist) {
     const product = req.params.id;
-    if (wishlist.products.includes(product)) {
+    if (wishlist.products.some((p) => p.equals(product))) {
       res.status(400);
       throw new Error('Product already in wishlist');
     }

@@ -1,0 +1,12 @@
+# Node
+node_modules
+npm-debug.log
+*.log
+.env
+
+# Expo
+.expo/
+dist/
+
+# Keystore
+*.keystore

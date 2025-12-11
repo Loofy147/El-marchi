@@ -3,11 +3,13 @@ import { View, Text, FlatList, Image, Button, StyleSheet, ActivityIndicator } fr
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { API_URL } from '@env';
+import { useRouter } from 'expo-router';
 
 const WishlistScreen = () => {
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     const fetchWishlist = async () => {
@@ -55,6 +57,11 @@ const WishlistScreen = () => {
     }
   };
 
+  const logoutHandler = async () => {
+    await AsyncStorage.removeItem('userInfo');
+    router.replace('/login');
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <Image source={{ uri: item.image }} style={styles.image} />
@@ -82,6 +89,7 @@ const WishlistScreen = () => {
         renderItem={renderItem}
         keyExtractor={(item) => item._id}
       />
+      <Button title="Logout" onPress={logoutHandler} />
     </View>
   );
 };
