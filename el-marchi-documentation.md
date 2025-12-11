@@ -46,7 +46,7 @@ The system will be built on a microservices architecture to ensure scalability a
 
 ### 3.2. Technology Stack
 
--   **Frontend:** React Native for cross-platform mobile development.
+-   **Frontend:** React Native with Expo for cross-platform mobile development.
 -   **Backend:** Node.js with Express.js for building scalable and efficient APIs.
 -   **Database:** MongoDB for flexibility and scalability.
 -   **Cloud Provider:** AWS for reliable and scalable cloud infrastructure.
